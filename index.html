@@ -16,12 +16,12 @@
 </head>
 <body>
     <div class="warp">
-        <header>
+        <header class="hoverNav">
             <div class="head-main clearfix">
                 <div class="head-logo"><a href="#"><h1>摇一摇</h1></a></div>
                 <div class="city-box">
                     <h2 class="city-name">三亚</h2>
-                    <span class="city-link">【<a href="http://www.55tuan.com/city_list.html">切换城市</a>】</span>
+                    <span class="city-link">【<a class="link" href="http://www.55tuan.com/city_list.html">切换城市</a>】</span>
                 </div>
                 <div class="search-box">
                     <div class="search-option">
@@ -37,7 +37,61 @@
             <nav class="head-main-nav clearfix">
                 <ul class="head-nav-ul">
                     <li class="all-cate">
-                        全部分类
+                        <h3>全部分类</h3>
+                        <div class="extra"></div>
+
+                        <ul class="level2-cate">
+                            <li>
+                                <div class="level12-cate-main">
+                                    <a class="link" href="#">美食</a>
+                                    <div class="extra">
+                                        <a href="#" class="link">代金券</a>
+                                        <a href="#" class="link">自助餐</a>
+                                        <i class="icon-angle-right"></i>
+                                    </div>
+                                    <div class="level13-cate">
+                                        <ul class="level13-cate-r1">
+                                            <header><a class="link" href="#">美食</a></header>
+                                            <li><a href="#" class="link">代金券</a></li>
+                                            <li><a href="#" class="link">火锅</a></li>
+                                        </ul>
+                                        <ul class="level13-cate-r2">
+                                            <header><a class="link" href="#">其它美食</a></header>
+                                            <li><a href="#" class="link">其它美食</a></li>
+                                            <li><a href="#" class="link">东北菜</a></li>
+                                        </ul>
+
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="level12-cate-main">
+                                    <a class="link" href="#">酒店</a>
+                                    <div class="extra">
+                                        <a href="#" class="link">经济型酒店</a>
+                                        <i class="icon-angle-right"></i>
+                                    </div>
+                                    <div class="level13-cate">
+                                        <ul class="level13-cate-r1">
+                                            <header><a class="link" href="#">经济型酒店</a></header>
+                                            <li><a href="#" class="link">度假酒店</a></li>
+                                            <li><a href="#" class="link">温泉酒店</a></li>
+                                        </ul>
+
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="level12-cate-main">
+                                    <a class="link" href="#">电影</a>/<a class="link" href="#">在线选座</a>
+                                    <div class="extra">
+                                        <i class="icon-angle-right"></i>
+                                    </div>
+                                </div>
+                            </li>
+
+
+                        </ul>
                     </li>
                     <li><a href="#">首页</a></li>
                     <li><a href="#">今日新单</a></li>
@@ -48,6 +102,94 @@
             </nav>
         </header>
 
+        <article class="content">
+            <header class="content-header">
+                <section class="content-cell content-hot">
+                    <header>
+                        <i class="icon-fire"></i>热门分类
+                    </header>
+                    <ul>
+                        <li><a href="#">代金券</a></li>
+                        <li><a href="#">婚纱</a></li>
+                        <li><a href="#">摄影</a></li>
+                        <li><a href="#">经济型酒店</a></li>
+                        <li><a href="#">豪华酒店</a></li>
+                        <li><a href="#">美发</a></li>
+                        <li><a href="#">电影</a></li>
+                        <li><a href="#">足疗</a></li>
+                        <li><a href="#">按摩</a></li>
+                        <li><a href="#">海鲜</a></li>
+                        <li><a href="#">蛋糕</a></li>
+                        <li><a href="#">火锅</a></li>
+                        <li><a href="#">游泳/水上乐园</a></li>
+                    </ul>
+                </section>
+
+                <section class="content-cell content-range">
+                    <header>
+                        <i class="icon-map-marker"></i>全部区域
+                    </header>
+                    <ul>
+                        <li><a href="#">代金券</a></li>
+                        <li><a href="#">婚纱</a></li>
+                        <li><a href="#">摄影</a></li>
+                        <li><a href="#">经济型酒店</a></li>
+                        <li><a href="#">豪华酒店</a></li>
+                        <li><a href="#">美发</a></li>
+                        <li><a href="#">电影</a></li>
+                        <li><a href="#">足疗</a></li>
+                        <li><a href="#">按摩</a></li>
+                        <li><a href="#">海鲜</a></li>
+                        <li><a href="#">蛋糕</a></li>
+                        <li><a href="#">火锅</a></li>
+                        <li><a href="#">游泳/水上乐园</a></li>
+                    </ul>
+                </section>
+
+            </header>
+
+            <div class="content-main">
+                <section class="cate-list">
+                    <header class="clearfix">
+                        <div class="cate-title"><div class="cate-icon"><i class="icon-food"></i></div>美食</div>
+                        <div class="cate-subs">
+                            <ul>
+                                <li><a href="#">代金券</a></li>
+                                <li><a href="#">代金券</a></li>
+                                <li><a href="#">全部<i class="icon-angle-right"></i></a></li>
+                            </ul>
+                        </div>
+                    </header>
+
+                    <div class="cate-list-content">
+                        <ul>
+                            <li>
+                                <div class="cate-list-info">
+                                    <a href="#">
+                                        <img src="images/test.jpg" alt=""/>
+                                    </a>
+                                    <div class="cate-list-txt">
+                                        <a href="#" class="link">
+                                            <h3>【亚龙湾百花谷】汉堡王</h3>
+                                            <p>汉堡王 WOW! 草莓新地2份，享受美味，从此开始</p>
+                                        </a>
+
+                                        <p class="cate-list-info-detail">
+                                            <span class="price">￥10</span>
+                                            <span class="after-price">￥50</span>
+                                            <span class="sales">已售311110</span>
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="cate-list-qrcode" style="background-image:url(images/qrcode_test.jpg)"></div>
+                            </li>
+                        </ul>
+
+                    </div>
+                </section>
+
+            </div>
+        </article>
     </div>
 </body>
 </html>
