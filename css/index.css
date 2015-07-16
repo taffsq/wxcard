@@ -11,6 +11,8 @@ a{ text-decoration: none; transition:color 100ms;}
 a:hover{ color:#f98235!important; }
 li{ list-style-type: none;   }
 
+.warp > footer{ border-top:2px solid #f98235; }
+.warp > footer >a{ line-height: 48px; height: 40px;  display: block; text-align: center; color:#666;   }
 .head-main,.head-main-nav,.content{  width:1170px;    }
 .head-main{ margin:5px auto; }
 .head-main div{ float:left; }
@@ -25,30 +27,38 @@ li{ list-style-type: none;   }
 .search-txt {  background: #fff;    left: 63px;   text-indent: 1em;    width: 360px;   font-size: 14px;    border:none;   }
 .search-submit{ float:right;    color:#ffffff;    width:79px;    border:none;    background: #f98235;  font-size: 14px;    font-weight: bold;}
 
+/**------直接显示分类*/
 .head-main-nav{  margin:0 auto;    background: #f98235;}
 .head-nav-ul > li{ float:left; line-height: 40px; }
 .head-nav-ul > li > a{ font-weight: bold;  padding:0 20px; color:#fff; display:block; height:100%; transition: background 400ms ease-out;}
 .head-nav-ul > li > a:hover{ background:#CF5F18; text-decoration: none; color:#ffffff!important; }
-
 .head-nav-ul .all-cate h3{ text-indent: 1em; }
-.head-nav-ul .all-cate{ width:250px;  color:#fff; cursor: default; position: relative; }
+.head-nav-ul .all-cate{ width:250px;  color:#fff; cursor: default; position: relative; z-index: 1; }
+.head-nav-ul .all-cate .arrow{ line-height:40px; float: right; font-size:30px; margin-right: 10px; display:none; }
 .head-nav-ul .all-cate li a,.level2-cate{ color:#444343; }
-.level2-cate{ position:absolute; width:250px; border-left:1px solid #eee; border-right:1px solid #eee; border-bottom:1px solid #eee; }
+/*------滑动显示分类*/
+.hoverNav .head-nav-ul .level2-cate{ display:none; }
+.hoverNav .head-nav-ul .all-cate:hover .level2-cate{ display: block; }
+.hoverNav .head-nav-ul .all-cate:hover .arrow:before{ content: "\f106"; }
+.hoverNav .head-nav-ul .all-cate .arrow{ display:inline; }
+
+.level2-cate{ position:absolute; width:250px; border-left:1px solid #eee; border-right:1px solid #eee; border-bottom:1px solid #eee; background:#fff;}
 .level2-cate:hover{ border-left:1px solid #CF5F18;  border-bottom:1px solid #CF5F18; }
 .level2-cate > li .level12-cate-main{ font-size: 14px; margin: 0 10px; padding: 5px 0 4px 5px; border-top:1px solid #eee}
 .level2-cate > li:first-child .level12-cate-main{ border-top: none; }
 .level2-cate > li > .level12-cate-main > a{ font-weight: bold; }
+.level2-cate > li:hover{ background: #E7E7E7; }
 .level2-cate .extra{ float:right; }
 .level2-cate .extra,.level2-cate .extra > a{ color:#888; }
 .level2-cate .extra .icon-angle-right,.content-main .icon-angle-right{ margin-left: 3px; }
 .level2-cate .level13-cate{ display: none;     white-space: nowrap; position: absolute;   top:0;   left:100%;    height: 100%;    width:auto;   min-width:100px; text-indent: 10px;    border-right:1px solid #CF5F18;    border-bottom:1px solid #CF5F18; background-color: #ffffff;}
-.level2-cate .level13-cate ul{    width:125px;  display:inline-block; line-height: 20px;    font-size: 12px;}
+.level2-cate .level13-cate ul{    width:125px;  display:inline-block; line-height: 23px; font-size: 12px;   vertical-align: top;}
 .level2-cate .level13-cate ul header a{ font-size: 20px;  }
 .level2-cate .level13-cate ul header{ margin:15px 0; line-height: 24px; height:24px; }
 .level2-cate > li:hover .level13-cate{ display: block }
 
 .content { margin:0 auto; font-size:12px; line-height: 24px; }
-.content .content-header{ margin: 0 0 30px 275px;}
+.content .content-header{ margin: 0 0 30px 275px; height:477px; }
 .content .content-cell{ padding: 18px 0; border-bottom:1px solid #eee; }
 .content .content-cell > header{   line-height: 24px;  color: #999;    font-size: 12px;    font-weight: 400;}
 .content .content-cell ul{ margin-left:19px;}
@@ -75,4 +85,5 @@ li{ list-style-type: none;   }
 .cate-list .cate-list-txt .sales{ float:right; }
 .cate-list .cate-list-qrcode{ transition:all 400ms ease-out; top:-100%; position: absolute; width:100%; height: 100%; background-repeat: no-repeat; background-size:90% auto; background-position: center center; background-color: #fff; }
 .cate-list .cate-list-content li:hover .cate-list-qrcode{ top:0; }
+.cate-list > footer a{ line-height: 48px; height: 40px;  display: block; text-align: center; color:#666; }
 
