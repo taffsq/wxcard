@@ -3,6 +3,7 @@
     $dao = new Dao();
 ?>
 <header class="">
+    <script src="js/index.js"></script>
     <div class="head-main clearfix">
         <div class="head-logo"><a href="#"><h1>摇一摇</h1></a></div>
         <div class="city-box">
@@ -13,7 +14,7 @@
             <div class="search-option">
                 商品
             </div>
-            <form action="/s/">
+            <form action="./detail.php" method="get" onsubmit="return checkForm( this )">
                 <input class="search-txt" type="text" name="w" maxlength="20" autocomplete="false"/>
                 <button class="search-submit" type="submit">搜索</button>
             </form>
@@ -70,7 +71,7 @@
                     };?>
                 </ul>
             </li>
-            <li><a href="#">首页</a></li>
+            <li><a href="./">首页</a></li>
             <li><a href="#">今日新单</a></li>
             <li><a href="#">身边团购</a></li>
             <li><a href="#">购物</a></li>

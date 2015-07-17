@@ -9,10 +9,10 @@
     <meta name="keywords" content="三亚团购,三亚团购网,三亚团购大全,三亚团购网站,三亚团购网站大全">
 
 
-    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="shortcut icon" href="favicon.ico">
     <link rel="stylesheet" href="css/index.css"/>
 
-    <title>三亚美团</title>
+    <title>三亚微联众-摇一摇</title>
 </head>
 <body>
 <div class="warp">
