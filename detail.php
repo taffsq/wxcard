@@ -26,21 +26,43 @@
         $cateid = isset( $_REQUEST["cid"] ) ? $_REQUEST["cid"] : NULL;
         $rangid = isset( $_REQUEST['rid'] ) ? $_REQUEST["rid"] : NULL;
 
-        $goods = NULL;
-        
-/*        if( isset($cateid) ){
-            $goods = $dao->getCateGoods($cateid);
-        }else if( isset($all_cateid) ) {
-            
-        }*/
+        $url = 'detail.php';
+        $rurl = '';
+        $curl = '';
 
+        $goods = NULL;
         $cates = NULL;
         $rangs = NULL;
         if( isset($gname) ){
-            $rangs = $dao->getRangesLikeGood($gname);
-            $cates = $dao->getCatesLikeGood($gname);
-            $goods = $dao->getGoodsLike( $gname );
+
+            $url .= '?w='.urlencode($gname);
+            $rurl = isset($cateid) ? $url.'&cid='.$cateid : $url;
+            $curl = isset($rangid) ? $url.'&rid='.$rangid : $url;
+
+            $goods = $dao->getGoodsLike($gname);
+            $rangs = array();
+            $_ran = NULL;$_cate = NULL;
+
+            $good = NULL;
+            for( $i=0; $i<count($goods); $i++){
+                $good = $goods[$i];
+
+                $_ran = $dao->getGoodRange($good['aid']);
+                $_cate = $dao->getGoodCate($good['cid']);
+                $rangs[$_ran['id']] = $_ran['name'];
+                $cates[$_cate['id']] = $_cate['name'];
+
+                if( (!empty($cateid) && $cateid != $_cate['id']) || (!empty($rangid) && $rangid!= $_ran['id']) ){
+                    $goods[$i] = NULL;
+                }else{
+                    $good['sts'] = $_ran;
+                    $goods[$i] = $good;
+                }
+
+            }
+
         }
+
     ?>
     <article class="content">
         <div class="content-main">
@@ -49,12 +71,12 @@
                     <section class="filter-cate clearfix">
                         <header>分类：</header>
                         <ul>
-                            <li class="<?php if(!isset($cateid)) echo 'active'?>"><a href="#">全部</a></li>
+                            <li class="<?php if(!isset($cateid)) echo 'active'?>"><a href="<?php echo $curl; ?>">全部</a></li>
                             <?php
                                 if( isset($cates) ){
-                                    foreach( $cates as $cate){
+                                    foreach( $cates as $id=>$name ){
                             ?>
-                            <li><a href="#" class="<?php if( isset($cateid) &&  $cateid == $cate['id'] ) echo 'active';?>"><?php echo $cate['name']?></a></li>
+                            <li class="<?php if( $cateid == $id ) echo 'active';?>"><a href="<?php echo $curl.'&cid='.$id ?>"><?php echo $name?></a></li>
                             <?php }
                                 }?>
                         </ul>
@@ -63,12 +85,12 @@
                     <section class="filter-cate clearfix">
                         <header>区域：</header>
                         <ul>
-                            <li class="<?php if(!isset($rangid)) echo 'active'?>"><a href="#">全部</a></li>
+                            <li class="<?php if(!isset($rangid)) echo 'active'?>"><a href="<?php echo $rurl; ?>">全部</a></li>
                             <?php
                                 if( isset($rangs) ){
-                                    foreach( $rangs as $rang){
+                                    foreach( $rangs as $id=>$name){
                             ?>
-                            <li><a href="#" class="<?php if( isset($rangid) && $rangid=$rang['id'] ) echo 'active';?>"><?php echo $rang['name']?></a></li>
+                            <li class="<?php if( $rangid==$id ) echo 'active';?>"><a href="<?php echo $rurl.'&rid='.$id ?>"><?php echo $name;?></a></li>
                             <?php }
                                 }?>
                         </ul>
@@ -82,7 +104,7 @@
                         <?php 
                             if( isset($goods) ){
                                 foreach ( $goods as $good ){
-                                    //print_r( $good );
+                                    if( !isset($good) ) continue;
                         ?>
                         <li>
                             <div class="cate-list-info">
@@ -91,7 +113,7 @@
                                 </a>
                                 <div class="cate-list-txt">
                                     <a href="#" class="link">
-                                        <h3><?php echo '【'.$good['sts'].'】'.$good['name'];?></h3>
+                                        <h3><?php echo '【'.$good['sts']['name'].'】'.$good['name'];?></h3>
                                         <p><?php echo $good['desc'];?></p>
                                     </a>
 
