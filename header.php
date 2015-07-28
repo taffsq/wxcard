@@ -15,7 +15,7 @@
                 商品
             </div>
             <form action="./detail.php" method="get" onsubmit="return checkForm( this )">
-                <input class="search-txt" type="text" name="w" maxlength="20" autocomplete="false"/>
+                <input class="search-txt" type="text" name="w" maxlength="20" autocomplete="false" placeholder="搜索商品"/>
                 <button class="search-submit" type="submit">搜索</button>
             </form>
         </div>
@@ -28,14 +28,15 @@
 
                 <ul class="level2-cate">
                     <?php
+                    $url = 'detail2.php';
                     $allCates = $dao->getAllCates();
 
-                    $cates = null;
+                    $f_cates = null;
                     foreach (  $allCates as $allCate){
                         ?>
                         <li>
                             <div class="level12-cate-main">
-                                <a class="link" href="#"><?php echo $allCate['name']?></a>
+                                <a class="link" href="<?php echo $url.'?acid='.$allCate['id']?>"><?php echo $allCate['name']?></a>
                                 <div class="extra">
                                     <?php
                                     /* <a href="#" class="link">代金券</a>
@@ -45,16 +46,16 @@
                                 </div>
                                 <div class="level13-cate">
                                     <?php
-                                    $cates = $dao->getCates($allCate['id']);
+                                    $f_cates = $dao->getCates($allCate['id']);
 
 
                                     $i=1;
                                     $str = '';
                                     $column = 16;
-                                    foreach ( $cates as $cate ){
+                                    foreach ( $f_cates as $cate ){
                                         if( $i == 1 )
-                                            $str .= '<ul><header><a href="#">'.(strlen($str)>1?"":$allCate['name']).'</a></header>';
-                                        $str .= '<li><a href="#">'.$cate['name'].'</a></li>';
+                                            $str .= '<ul><header><a href=$url."?acid='.$allCate['id'].'">'.(strlen($str)>1?"":$allCate['name']).'</a></header>';
+                                        $str .= '<li><a href="'.$url.'?cid='.$cate['id'].'">'.$cate['name'].'</a></li>';
 
                                         if( $i == $column ){
                                             $str .= '</ul>';
